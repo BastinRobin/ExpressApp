@@ -9,7 +9,12 @@ app.get('/', function(req, res) {
 	res.render('sam', {
 		title:'Homepage',
 		name:'Robin',
-		age:25
+		age:25,
+		details: {
+			first: "first is the best",
+			second: "second who cares!!",
+			third: "third not fine"
+		}
 	})
 });
 

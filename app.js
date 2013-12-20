@@ -28,37 +28,44 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get('/', routes.index);
+app.get('/users', routes.list);
+app.get('/robin', routes.rob);
+app.get('/about', routes.about);
 
-app.get('/', function(req, res) {
-	res.render('index', {
-		title: 'Home',
-		data: 'Lorem ipsum and this a',
-		num: [1,2,3,4,5,6]
-	});
-});
+// app.get('/', function(req, res) {
+// 	res.render('index', {
+// 		title: 'Home',
+// 		data: 'Lorem ipsum and this a',
+// 		num: [1,2,3,4,5,6]
+// 	});
+// });
 
-app.get('/about', function(req, res) {
-	res.render('about', {
-		title: 'About',
-		name: 'Bastin Robin'
-	});
-});
+// app.get('/about', function(req, res) {
+// 	res.render('about', {
+// 		title: 'About',
+// 		name: 'Bastin Robin'
+// 	});
+// });
 
-app.get('/contact', function(req, res) {
-	res.render('about', {
-		title: 'Contact'
-	});
-});
+// app.get('/contact', function(req, res) {
+// 	res.render('about', {
+// 		title: 'Contact'
+// 	});
+// });
 
-app.get('/drop', function(req, res) {
-	res.render('about', {
-		title: 'Drop'
-	})
-});
+// app.get('/drop', function(req, res) {
+// 	res.render('about', {
+// 		title: 'Drop'
+// 	})
+// });
 
-app.post('/load', function(req, res) {
-	res.send(req.query);
-})
+// app.post('/:name', function(req, res) {
+// 	res.render('about', {
+// 		title: req.params.name,
+// 		name: 'Bastin Robin'
+// 	});
+// })
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
